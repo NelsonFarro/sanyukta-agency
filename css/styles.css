@@ -1,6 +1,6 @@
 /* ==========================================================================
    Sanyukta The Digital Hub — CSS Stylesheet
-   Based on DESIGN.md visual token system + Light Mode & Mobile Menu Fixes
+   Based on DESIGN.md visual token system + Light Mode & Upscaled Client Logo
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -354,7 +354,7 @@ button, input, textarea, select {
 }
 
 /* --------------------------------------------------------------------------
-   7. Navigation Bar (Sticky & Mobile Responsive)
+   7. Navigation Bar & Upscaled Client Logo
    -------------------------------------------------------------------------- */
 .navbar {
   position: fixed;
@@ -389,10 +389,14 @@ button, input, textarea, select {
   flex-shrink: 0;
 }
 
-.brand-signal-icon {
-  width: 22px;
-  height: 22px;
-  color: var(--signal);
+.brand-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  padding: 3px 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .nav-links {
@@ -400,6 +404,10 @@ button, input, textarea, select {
   align-items: center;
   gap: 26px;
   list-style: none;
+}
+
+.nav-links-cta {
+  display: none !important;
 }
 
 .nav-link {
@@ -1235,7 +1243,6 @@ button, input, textarea, select {
    18. Responsive Breakpoints & Mobile Nav Rules
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
-  /* Hide navbar header CTA button on mobile so hamburger icon is NEVER pushed off-screen */
   .nav-actions .btn-nav {
     display: none !important;
   }
@@ -1266,6 +1273,12 @@ button, input, textarea, select {
     transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
+  }
+
+  .nav-links-cta {
+    display: block !important;
+    width: 100%;
+    margin-top: 8px;
   }
 
   .mobile-menu-btn {
@@ -1321,6 +1334,10 @@ button, input, textarea, select {
 @media (max-width: 600px) {
   .nav-actions {
     gap: 6px;
+  }
+
+  .brand-logo-img {
+    height: 40px;
   }
 
   .pitch-badge span.text-desktop {
